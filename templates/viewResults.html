@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block messages %}
+    {% for message in get_flashed_messages() %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endfor %}
+{% endblock %}
+
+{% block H1_Description %}
+    <div class="container">
+        <div class="row row-cols-3" style="grid-gap: 20px;">
+            <h4 class="font-weight-bold mb-0">Smoker Count Plot: <img src="{{ url_for("static", filename=plots[0]) }}" alt="" width="450" height="300"></h4>
+            <h4 class="font-weight-bold mb-0">Age Distribution Plot: <img src="{{ url_for("static", filename=plots[1]) }}" alt="" width="450" height="300"></h4>
+            <h4 class="font-weight-bold mb-0">Smoker Box Plot: <img src="{{ url_for("static", filename=plots[2]) }}" alt="" width="450" height="300"></h4>
+            <h4 class="font-weight-bold mb-0">Model Residual Plot: <img src="{{ url_for("static", filename=plots[3]) }}" alt="" width="450" height="300"></h4>
+            <h4 class="font-weight-bold mb-0">Model R2 Score: <span class="text-muted font-weight-normal">{{ modelScores[0] }}</span></h4>
+            <h4 class="font-weight-bold mb-0">Model MAE Score: <span class="text-muted font-weight-normal">{{ modelScores[1] }}</span></h4>
+            <h4 class="font-weight-bold mb-0">Model MSE Score: <span class="text-muted font-weight-normal">{{ modelScores[2] }}</span></h4>
+            <h4 class="font-weight-bold mb-0">Model RMSE Score: <span class="text-muted font-weight-normal">{{ modelScores[3] }}</span></h4>
+            <h4 class="font-weight-bold mb-0">Estimated Charges for Applicant: <span class="text-muted font-weight-normal">{{ estimatedCharges[0] }}</span></h4>
+        </div>
+    </div>
+{% endblock %}
+
+{% block H1_Content %}
+{% endblock %}
+
+{% block H2_Description %}
+{% endblock %}
+
+{% block H2_Content %}
+{% endblock %}
